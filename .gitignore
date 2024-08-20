@@ -1,0 +1,8 @@
+# Nodemodules
+node_modules
+
+# dist
+dist
+
+# npmignore
+.npmignore
