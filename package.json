@@ -20,6 +20,7 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "astro-commit-ts": "^1.1.7",
     "typescript": "^5.5.4"
   }
 }
