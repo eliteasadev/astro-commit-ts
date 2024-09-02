@@ -1,6 +1,6 @@
 {
   "name": "astro-commit-ts",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "description": "A simple CLI tool to create conventional commits",
   "keywords": [
@@ -18,7 +18,7 @@
     "postinstall": "node createConfig.mjs"
   },
   "devDependencies": {
-    "astro-commit-ts": "^1.0.3",
+    "astro-commit-ts": "^1.0.2",
     "typescript": "^5.5.4"
   }
 }
