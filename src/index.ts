@@ -1,10 +1,11 @@
 import { confirm, input, select } from "@inquirer/prompts";
 import { exec } from "child_process";
 
+
 /**
- * Async function to create a commit, asking the user for the type of change, scope, description, and footer.
+ * Función asíncrona para crear un commit, preguntando al usuario por el tipo de cambio, ámbito, descripción y pie de página.
  */
-export async function createCommit() {
+export async function createCommitEs() {
   const type = await select({
     message: "¿Qué tipo de cambio quieres realizar?",
     loop: false,
@@ -65,3 +66,69 @@ export async function createCommit() {
     console.log("Commit cancelado");
   }
 }
+
+/**
+ * Async function to create a commit, asking the user for the type of change, scope, description, and footer.
+ */
+export async function createCommitEn() {
+  const type = await select({
+    message: "What type of change do you want to make?",
+    loop: false,
+    choices: [
+      { name: "feat: A new feature", value: "feat" },
+      { name: "fix: A bug fix", value: "fix" },
+      { name: "docs: Documentation changes", value: "docs" },
+      {
+        name: "style: Changes that do not affect the logic of the code (whitespace, formatting, etc.)",
+        value: "style",
+      },
+      {
+        name: "refactor: Changes to the code that do not fix bugs or add features",
+        value: "refactor",
+      },
+      { name: "perf: Changes that improve performance", value: "perf" },
+      {
+        name: "test: Add missing tests or correct existing tests",
+        value: "test",
+      },
+      {
+        name: "chore: Changes to the build process or auxiliary tools",
+        value: "chore",
+      },
+    ],
+  });
+
+  const scope = await input({
+    message: "What is the scope of the change? (optional)",
+  });
+
+  const description = await input({
+    message: "What is the description of the change?",
+  });
+
+  const footer = await input({
+    message: "Is there any footer? (optional)",
+  });
+
+  const commitMessage = `${type}${scope ? `(${scope})` : ""}: ${description}${
+    footer ? `\n\n${footer}` : ""
+  }`;
+
+  const confirmCommit = await confirm({
+    message: `Do you confirm that you want to make the commit?`,
+    default: false,
+  });
+
+  if (confirmCommit) {
+    exec(`git commit -m "${commitMessage}"`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(`Error making the commit: ${stderr}`);
+        return;
+      }
+      console.log(`Commit made: ${stdout}`);
+    });
+  } else {
+    console.log("Commit canceled");
+  }
+}
+
