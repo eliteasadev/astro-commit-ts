@@ -5,4 +5,4 @@ node_modules
 dist
 
 # conventional commit config
-commit.config.js
+commit.config.mjs

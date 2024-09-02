@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { promises as fs } from 'fs';
 import path from 'node:path';
 import { select, input } from '@inquirer/prompts';

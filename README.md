@@ -6,6 +6,12 @@
 npm install astro-commit-ts --save-dev
 ```
 
+## Run the command to configure the tool
+
+```bash
+npx astro-commit-init
+```
+
 ## Select the language
 
 (Move up and down to reveal more choices)
