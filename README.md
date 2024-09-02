@@ -6,15 +6,20 @@
 npm install astro-commit-ts --save-dev
 ```
 
-## Add the following configuration file
+## Select the language
 
-```javascript
-// astrocommit.config.mjs
-import { createCommit } from "astro-commit-ts";
+(Move up and down to reveal more choices)
 
-createCommit().catch((error) => {
-  console.error("Error:", error);
-});
+```bash
+? What language do you want to work with? (Use arrow keys)
+❯ Español
+  English
+```
+
+## Select the file name (optional)
+
+```bash
+? What name do you want to give to the configuration file? (commit.config.mjs)
 ```
 
 ## Add the following script to the package.json file
@@ -22,7 +27,7 @@ createCommit().catch((error) => {
 ```javascript
 // package.json
 "scripts" {
-    "commit": "node astrocommit.config.mjs"
+    "commit": "node commit.config.mjs"
 }
 ```
 
