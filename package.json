@@ -15,11 +15,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "postinstall": "tsc && node dist/createConfig.js",
-    "commit": "node commit.config.mjs"
+    "postinstall": "node createConfig.mjs"
   },
   "devDependencies": {
-    "astro-commit-ts": "^1.0.1",
+    "astro-commit-ts": "^1.0.3",
     "typescript": "^5.5.4"
   }
 }
